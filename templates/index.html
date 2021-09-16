@@ -1,0 +1,477 @@
+<link rel="icon" href="Assets/Images/favico.png" type="image/gif">
+  <title>Wheels Insite</title>
+
+<style>
+  
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+body {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    margin:0px;
+    padding:0px;
+    background-color:#111;
+  }
+
+p {
+  margin: 0;
+}
+
+#burger-toggle {
+
+  position: fixed;
+  appearance: none;
+  opacity: 0;
+}
+#burger-toggle:checked ~ .menu {
+  opacity: 1;
+  visibility: visible;
+}
+#burger-toggle:checked ~ .menu .menu-nav-link span div,
+#burger-toggle:checked ~ .menu img,
+#burger-toggle:checked ~ .menu .title p {
+  transform: translateY(0);
+  transition: 1.2s 0.1s cubic-bezier(0.35, 0, 0.07, 1);
+}
+#burger-toggle:checked ~ .menu .image-link:nth-child(1) img {
+  transition-delay: 0.18s;
+}
+#burger-toggle:checked ~ .menu .image-link:nth-child(2) img {
+  transition-delay: 0.26s;
+}
+#burger-toggle:checked ~ .menu .image-link:nth-child(3) img {
+  transition-delay: 0.34s;
+}
+#burger-toggle:checked ~ .menu .image-link:nth-child(4) img {
+  transition-delay: 0.42s;
+}
+#burger-toggle:checked ~ .burger-menu .line::after {
+  transform: translateX(0);
+}
+#burger-toggle:checked ~ .burger-menu .line:nth-child(1) {
+  transform: translateY(calc(var(--burger-menu-radius) / 5)) rotate(45deg);
+}
+#burger-toggle:checked ~ .burger-menu .line:nth-child(2) {
+  transform: scaleX(0);
+}
+#burger-toggle:checked ~ .burger-menu .line:nth-child(3) {
+  transform: translateY(calc(var(--burger-menu-radius) / -5)) rotate(-45deg);
+}
+
+.burger-menu {
+  width:98%;
+  padding:1%;
+  background-color:#111;
+  position: fixed;
+  z-index: 100;
+  display: block;
+  outline: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+}
+.burger-menu .line {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background: rgba(43, 61, 79, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.burger-menu .line:nth-child(1) {
+  top: 30%;
+}
+.burger-menu .line:nth-child(2) {
+  top: 50%;
+}
+.burger-menu .line:nth-child(3) {
+  top: 70%;
+}
+.burger-menu .line::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color-darker);
+  transform: translateX(-100%);
+  transition: 0.25s;
+}
+.burger-menu .line:nth-child(2)::after {
+  transition-delay: 0.1s;
+}
+.burger-menu .line:nth-child(3)::after {
+  transition-delay: 0.2s;
+}
+.burger-menu:hover .line::after {
+  transform: translateX(0);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0, 0.7);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  overflow-x: hidden;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 1;
+}
+@media screen and (max-width: 750px) {
+  .menu {
+    display: block;
+  }
+}
+.menu-nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  list-style-type: none;
+}
+@media screen and (max-width: 750px) {
+  .menu-nav {
+    flex-direction: column;
+  }
+}
+.menu-nav-item {
+  flex: 1;
+}
+.menu-nav-link {
+  position: relative;
+  display: inline-flex;
+  font-size: 2rem;
+  color:#bf661e;
+  text-decoration: none;
+}
+.menu-nav-link span {
+  overflow: hidden;
+}
+.menu-nav-link span div {
+  transform: translateY(102%);
+}
+.menu-nav-link::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+.menu-nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.menu .gallery {
+  margin-top: 60px;
+  text-align: center;
+}
+.menu .title {
+  font-size: 24px;
+  color: white;
+  overflow: hidden;
+}
+.menu .title p {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transform: translateY(102%);
+}
+.menu .images {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 750px) {
+  .menu .images {
+    justify-content: center;
+  }
+}
+.menu .images .image-link {
+  width: 15vw;
+  margin: 0 12px;
+  overflow: hidden;
+}
+@media screen and (max-width: 750px) {
+  .menu .images .image-link {
+    width: 40vw;
+    margin: 0 12px 12px 0;
+  }
+}
+.menu .images .image-link .image {
+  position: relative;
+  transition: 0.6s;
+}
+.menu .images .image-link .image::before {
+  position: absolute;
+  content: attr(data-label);
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: 0.4s;
+}
+.menu .images .image-link:hover .image {
+  transform: scale(1.2);
+}
+.menu .images .image-link:hover .image::before {
+  opacity: 1;
+}
+.menu .images img {
+  height: 250px;
+  transform: translateY(102%);
+}
+
+.maincontainer{
+  background-image:url('https://sukhvirsinghfilms.com/wheelsInsite/background.jpg');
+  text-align:center;
+  width: 100%;
+ background-size:cover;
+}
+ .maincontainer .container{
+  text-align:center; 
+    background-color:rgba(0,0,0, 0.8);
+    backdrop-filter: blur(10px); 
+    display:block;
+    padding:200px 0px;
+    color:"#fff"
+ }
+  .card{ 
+   width:100%;
+ margin:50px 0px;
+  }
+  .card .sections{
+      margin: 10px;
+      display:inline-block;
+      min-width:240px;
+      max-width: 400px;
+      text-align:center;
+      vertical-align:top;
+     
+  } 
+  .card .sections .data{
+    background-color:rgba(256,256, 256, 0.05);
+    backdrop-filter: blur(50px);
+    border:3px solid #222;
+    width:100%;
+    border-radius: 20px;
+    max-width:300px;
+    margin:0px auto;
+    padding:10px;
+    text-align:left;
+ }
+ .card .sections .data input{
+   margin:5px 0px;
+   padding:20px; width: 100%; border:2px solid #333;  background-color:transparent; border-radius:15px; color:#fff;
+ }
+ .card .sections .data p{
+   color:#eee;
+   margin:10px;
+ }
+ textarea:focus, input:focus{
+    outline: none;
+}
+.container .button p{
+  font-size:45px; 
+  display:inline-block;
+}
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+.inputselect{
+  display: inline-block;
+  margin: 20px 50px;
+}
+.inputselect select{
+ background-color: transparent;
+ padding: 10px;
+ width: 200px;
+ color: #eee;
+ border: 2px solid #444;
+ 
+
+}
+.inputselect select option{
+  background-color: #111;
+  padding: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+.inputselect h3{
+  font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+</style>
+
+
+
+
+  <input type="checkbox" id="burger-toggle">
+  <label for="burger-toggle" class="burger-menu">
+    <img src="Assets/Images/logo.png" ><p style="color:#a50a1f;font-family: 'Russo One', sans-serif; letter-spacing:1.5;display:inline-block;  vertical-align: top; margin: 15px; font-size:22"> Wheels Insite</p></a>   
+  </label>
+<div class="menu">
+  <div class="menu-inner">                                     
+    <div class="gallery">
+      <div class="title">
+        <p style="color:#a50a1f; font-weight:900; font-size:14px">Specifications Matters!</p>
+      </div>
+      <div class="images">
+        <a class="image-link" href="#">
+          <div class="image" data-label="Supercars"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/1.jpg" alt=""></div>
+        </a>
+        <a class="image-link" href="#">
+          <div class="image" data-label="Top 10 Cars"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/2.jpg" alt=""></div>
+        </a>
+        <a class="image-link" href="#">
+          <div class="image" data-label="Car Price Prediction"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/3.jpg" alt=""></div>
+        </a>
+       
+        <a class="image-link" href="#">
+          <div class="image" data-label="Compare Cars"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/4.jpg" alt=""></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="maincontainer">
+    
+<div >
+  
+   
+      
+</div>
+    <div class="container">
+    <h1 style="color:#a50a1f;
+ font-family: 'Play', sans-serif;
+    letter-spacing:2;display:inline-block; 
+     vertical-align: top; 
+     font-size:30; ">Predict your Car Value</h1>
+    
+            <div class="card">
+              <form action="{{ url_for('predict')}}" method="post">
+                <div class="sections">
+                    <div class="data">
+                        <p>Car details</p>
+                        <input id="first" name="Year" type="number " placeholder="Year">
+                        <input id="second" name="Present_Price" required="required" placeholder="Showroom Price (in Lakh)" >
+                    </div>
+                </div>
+                 <div class="sections">
+                    <img src="https://sukhvirsinghfilms.com/wheelsInsite/car.png" style="width:95%; min-width:300px ">
+                 </div>
+                <div class="sections">
+                <div class="data">
+                        <p>Car details</p>
+                        <input id="third" name="Kms_Driven" required="required" placeholder="KMS Driven">
+                        <input id="fourth" name="Owner" required="required" placeholder="Number of owner" >
+                    </div>
+                </div>
+
+
+              <div style="color: #fff;">
+                <div class="inputselect">
+                <h3>Fuel type</h3><br>
+                <select name="Fuel_Type_Petrol" id="fuel" required="required">
+                  <option value="Petrol">Petrol</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="CNG">CNG</option>
+              </select>
+              </div>
+              <div class="inputselect">
+              <h3>Dealer or Individual </h3><br>
+              <select name="Seller_Type_Individual" id="resea" required="required">
+                  <option value="Dealer">Dealer</option>
+                  <option value="Individual">Individual</option>
+              </select>
+            </div>
+            <div class="inputselect">
+              <h3>Transmission type</h3><br><select name="Transmission_Mannual" id="research" required="required">
+                  <option value="Mannual" >Manual Car</option>
+                  <option value="Automatic">Automatic Car</option>
+              </select>
+            </div>
+              <div class="button" style="margin-top:50px;color:#fff;"> <p>&#8377;</p><p id="nbr">{{ prediction_text }}</p> lakh</div>
+              <br><br><button id="sub" type="submit " onclick="incNbr()" style="margin-top:50px; cursor:pointer; padding:20px 60px;background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(160,51,144,1) 0%, rgba(253,29,29,1) 100%, rgba(252,176,69,1) 100%); border-radius:40px; color:#fff; border:0px">Calculate the Selling Price</button>
+              <br>
+        
+            </div>
+          </form>
+        
+            </div>
+           
+         </div>
+      
+<script>
+var speed = 30;
+
+/* Call this function with a string containing the ID name to
+ * the element containing the number you want to do a count animation on.*/
+function incEltNbr(id) {
+  elt = document.getElementById(id);
+  endNbr = Number(document.getElementById(id).innerHTML);
+  incNbrRec(0, endNbr, elt);
+ 
+}
+
+
+/*A recursive function to increase the number.*/
+function incNbrRec(i, endNbr, elt) {
+  if (i <= endNbr) {
+    elt.innerHTML = i;
+    setTimeout(function() {//Delay a bit before calling the function again.
+      incNbrRec(i + 0.01, endNbr, elt);
+    }, speed);
+  }
+  
+}
+
+/*Function called on button click*/
+function incNbr(){
+  incEltNbr("nbr");
+}
+
+incEltNbr("nbr"); /*Call this funtion with the ID-name for that element to increase the number within*/
+
+</script>
