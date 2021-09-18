@@ -430,8 +430,8 @@ button:focus {
         <p style="color:#a50a1f; font-weight:900; font-size:14px">Specifications Matters!</p>
       </div>
       <div class="images">
-        <a class="image-link" href="#">
-          <div class="image" data-label="https://sukhvirsinghfilms.com/wheelsInsite/supercars.php"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/1.jpg" alt=""></div>
+        <a class="image-link" href="https://sukhvirsinghfilms.com/wheelsInsite/supercars.php">
+          <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/1.jpg" alt=""></div>
         </a>
         <a class="image-link" href="#">
           <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/2.jpg" alt=""></div>
@@ -520,7 +520,7 @@ button:focus {
          </div>
       
 <script>
-var speed = 30;
+var speed = 10;
 
 /* Call this function with a string containing the ID name to
  * the element containing the number you want to do a count animation on.*/
@@ -537,7 +537,7 @@ function incNbrRec(i, endNbr, elt) {
   if (i <= endNbr) {
     elt.innerHTML = i;
     setTimeout(function() {//Delay a bit before calling the function again.
-      incNbrRec(i + 0.01, endNbr, elt);
+      incNbrRec(i + 0.1, endNbr, elt);
     }, speed);
   }
   
