@@ -1,6 +1,6 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="Assets/Images/favico.png" type="image/gif">
   <title>Wheels Insite</title>
 
@@ -369,6 +369,48 @@ button:focus {
     outline: none;
 }
 
+.footer{
+        background-color:#111;
+        width:100%;
+        margin:0px;
+        padding:0px;
+        text-align:center;
+        padding:20px 0px;
+        clear:both;
+    }
+    .footerSection{
+        width:20%;
+        margin:0px;
+        padding:0px;
+        text-align:Right;
+        display:inline-block;
+        min-width:150px;
+    }
+    .footerSectionRight{
+        border-left:2px solid #aaa;
+        margin-left:10px;
+        padding:0px 10px;
+        width:20%;
+        text-align:left;
+        display:inline-block;
+        min-width:150px;
+    }
+    .fa{
+       text-decoration: none; 
+       color:#aaa;
+       padding:10px;
+       background-color:#111;
+    } 
+    .fa:hover{
+        transition: 0.2s ease-in-out;
+         color:red;
+        font-size:25px;
+        
+    } 
+     .footer h1, .footer p{
+         color:#eee;
+     }
+
 </style>
 
 </head>
@@ -386,16 +428,16 @@ button:focus {
       </div>
       <div class="images">
         <a class="image-link" href="#">
-          <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/1.jpg" alt=""></div>
+          <div class="image" data-label="https://sukhvirsinghfilms.com/wheelsInsite/supercars.php"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/1.jpg" alt=""></div>
         </a>
         <a class="image-link" href="#">
           <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/2.jpg" alt=""></div>
         </a>
-        <a class="image-link" href="#">
+        <a class="image-link" href="https://sukhvirsinghfilms.com/wheelsInsite/topcars.php">
           <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/3.jpg" alt=""></div>
         </a>
        
-        <a class="image-link" href="#">
+        <a class="image-link" href="https://sukhvirsinghfilms.com/wheelsInsite/carcomparison.php">
           <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/4.jpg" alt=""></div>
         </a>
       </div>
@@ -506,3 +548,22 @@ function incNbr(){
 incEltNbr("nbr"); /*Call this funtion with the ID-name for that element to increase the number within*/
 
 </script>
+
+
+<div class="footer">
+<div class="footerSection">
+   <h1>Wheels Insite</h1>
+</div>
+<div class="footerSectionRight">
+  <p><i>Specification Matters!</i></p>
+</div>
+<div class="footerSection">
+  <a href="#" class="fa fa-facebook"></a>
+  <a href="#" class="fa fa-github"></a>
+  <a href="#" class="fa fa-linkedin"></a>
+  <a href="#" class="fa fa-google"></a>
+</div>
+<div class="footerSectionRight">
+   <p>©2020 www.wheelsinsite.com</p>
+</div>
+</div>
