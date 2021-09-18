@@ -19,6 +19,15 @@ body {
     background-color:#111;
   }
 
+  body {
+   font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    margin:0px;
+    padding:0px;
+    background-color:#222;
+    width:100%;
+  }
+
 p {
   margin: 0;
 }
@@ -69,11 +78,13 @@ p {
   padding:1%;
   background-color:#111;
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   display: block;
   outline: none;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  
 }
 .burger-menu .line {
   position: absolute;
@@ -124,13 +135,13 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0, 0.7);
+  background-color: rgba(0,0,0, 0.5);
   backdrop-filter: blur(10px);
   opacity: 0;
   overflow-x: hidden;
   visibility: hidden;
   transition: 0.3s;
-  z-index: 1;
+  z-index: 100;
 }
 @media screen and (max-width: 750px) {
   .menu {
@@ -210,12 +221,16 @@ p {
 .menu .images .image-link {
   width: 15vw;
   margin: 0 12px;
+    
   overflow: hidden;
 }
 @media screen and (max-width: 750px) {
   .menu .images .image-link {
     width: 40vw;
     margin: 0 12px 12px 0;
+  }
+  .splitview{
+  display: none;
   }
 }
 .menu .images .image-link .image {
@@ -234,9 +249,9 @@ p {
   width: 100%;
   height: 100%;
   color: white;
-  background: rgba(0, 0, 0, 0.6);
   opacity: 0;
   transition: 0.4s;
+
 }
 .menu .images .image-link:hover .image {
   transform: scale(1.2);
@@ -245,9 +260,22 @@ p {
   opacity: 1;
 }
 .menu .images img {
-  height: 250px;
+  height: 140px;
   transform: translateY(102%);
 }
+.menu .title p{
+ margin-top:50px;
+}
+
+
+
+
+
+
+
+
+
+
 
 .maincontainer{
   background-image:url('https://sukhvirsinghfilms.com/wheelsInsite/background.jpg');
@@ -358,17 +386,17 @@ button:focus {
       </div>
       <div class="images">
         <a class="image-link" href="#">
-          <div class="image" data-label="Supercars"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/1.jpg" alt=""></div>
+          <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/1.jpg" alt=""></div>
         </a>
         <a class="image-link" href="#">
-          <div class="image" data-label="Top 10 Cars"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/2.jpg" alt=""></div>
+          <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/2.jpg" alt=""></div>
         </a>
         <a class="image-link" href="#">
-          <div class="image" data-label="Car Price Prediction"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/3.jpg" alt=""></div>
+          <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/3.jpg" alt=""></div>
         </a>
        
         <a class="image-link" href="#">
-          <div class="image" data-label="Compare Cars"><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/4.jpg" alt=""></div>
+          <div class="image" data-label=""><img src="https://sukhvirsinghfilms.com/wheelsInsite/Assets/Images/4.jpg" alt=""></div>
         </a>
       </div>
     </div>
